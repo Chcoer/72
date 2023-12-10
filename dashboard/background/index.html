@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UFT-8">
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+        }
+
+        #text {
+            margin-top: 20px;
+            margin-left: 40px;
+            position: fixed;
+            top: 8%;
+            width: 100%;
+            height: 92%;
+            transition: margin-left.5s;
+        }
+
+        .Nav_OPbtn {
+            transition: 1s;
+            line-height: 5.89px;
+            z-index: 100;
+            position: fixed;
+            left: 2%;
+            top: 2.5%;
+            font-size: 30px;
+            cursor: pointer;
+            color: white;
+        }
+
+        #title1 {
+            text-align: cn;
+        }
+
+        #title2 {
+            color: rgb(44, 44, 44);
+        }
+
+        #title3 {
+            z-index: 99;
+            position: fixed;
+            left: 5%;
+            top: 2%;
+            font-size: 20px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .sidenav {
+            z-index: 20;
+            background-color: #ffffff00;
+            height: 3000%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 8%;
+            left: 0;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 11px;
+        }
+
+        .sidenav a {
+            z-index: 20;
+            text-decoration: none;
+            font-size: 25px;
+            color: #555555;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav .closebtn {
+            z-index: 20;
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        #main {
+            box-shadow: 0px 2px 6px rgb(65, 65, 65);
+            z-index: 98;
+            position: fixed;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 8%;
+            background-color: rgb(41, 82, 173);
+            transition: margin-left.5s;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+
+        .btn-G {
+            /* 相对定位 */
+            text-align: center;
+            position: relative;
+            border: none;
+            background: white;
+            width: 230px;
+            height: 60px;
+            font-size: 22px;
+            color: rgb(73, 73, 73);
+            /* 字间距 */
+            letter-spacing: 3px;
+            /* 阴影 */
+            cursor: pointer;
+            /* 溢出隐藏 */
+            overflow: hidden;
+            transition: 0.5s;
+        }
+
+        .btn-G:hover {
+            background-color: rgb(235, 235, 235);
+        }
+
+        .btn-G span {
+            /* 绝对定位 */
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: rgb(187, 187, 187);
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            /* 执行动画 */
+            animation: animate 1s ease;
+            /* 设置元素不对指针事件做出反应 */
+            pointer-events: none;
+        }
+
+        /* 定义动画 */
+        @keyframes animate {
+            from {
+                width: 0;
+                height: 0;
+                opacity: 0.5;
+            }
+
+            to {
+                width: 400px;
+                height: 400px;
+                opacity: 0;
+            }
+        }
+    </style>
+
+    <script>
+        var Nav_s = 'close';
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "230px";
+            document.getElementById("main").style.marginLeft = "0px";
+            document.getElementById("text").style.marginLeft = "270px";
+            Nav_s = 'open';
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            document.getElementById("text").style.marginLeft = "40px";
+            Nav_s = 'close';
+        }
+
+        function opNav() {
+            if (Nav_s == 'close') {
+                openNav();
+            }
+            else {
+                closeNav();
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="text">
+        <style>
+            #form {
+                left: 0.5%;
+                width: 50%;
+                height: 50vh;
+                position: relative;
+                font-family: Sans-serif;
+                overflow: hidden;
+                /* 新增 */
+            }
+
+            #form input {
+                font-size: 17px;
+                height: 2rem;
+                width: 110%;
+                padding-top: 1rem;
+                /* 新增 */
+                border: none;
+                border-bottom: 0.12rem solid black;
+                outline: none;
+                /* 新增 */
+            }
+
+            #form label {
+                font-size: 14px;
+                position: absolute;
+                width: 90%;
+                top: 0;
+                left: 0;
+                pointer-events: none;
+                color: rgb(112, 112, 112);
+            }
+
+
+            #form label::after {
+                content: "";
+                /* 这个很关键，我们需要这个属性底部边框才会显示出来 */
+                height: 3rem;
+                width: 111.5%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                border-bottom: 0.21rem solid rgb(26, 115, 232);
+                /* 底部边框需要较为突出，这里我们加粗跟上颜色 */
+                transform: translatex(-100%);
+                /* 向左平移 100% 确保移出 form 元素之外 */
+                transition: all 0.5s ease;
+                /* 添加动画来达到平滑移动的效果 */
+            }
+
+            #form label span {
+                position: absolute;
+                bottom: -3rem;
+                left: 0;
+                transition: all 0.3s ease;
+                /* 动画，达到平滑移动的效果 */
+            }
+
+            #form input:focus+label span,
+            #form input:valid+label span {
+                transform: translateY(-160%);
+                /* 将 Username向上平移 */
+                font-Size: 0.93rem;
+                /* 变大字体，突显高亮效果 */
+                color: rgb(26, 115, 232);
+                /* 高亮颜色 */
+            }
+
+            #form input:focus+label::after,
+            #form input:valid+label::after {
+                transform: translateX(0);
+                /* 将左边的高亮底部边框平移回来 */
+            }
+        </style>
+        <h1>更改前台背景信息</h1>
+        <div id="form">
+            <input id="input1" tyPE="text" required />
+            <label>
+                <span>Background-img</span>
+            </label>
+            <style>
+                .btn-Gsmt {
+                    z-index: 150;
+                    border-radius: 10%;
+                    /* 相对定位 */
+                    position: absolute;
+                    top: 100%;
+                    border: none;
+                    background: rgb(26, 115, 232);
+                    width: 100px;
+                    height: 40px;
+                    font-size: 18px;
+                    color: #fff;
+                    /* 字间距 */
+                    letter-spacing: 3px;
+                    /* 阴影 */
+                    cursor: pointer;
+                    /* 溢出隐藏 */
+                    overflow: hidden;
+                    transition: 1s;
+                }
+
+                .btn-Gsmt:hover {
+                    box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.2);
+                }
+
+                .btn-Gsmt span {
+                    /* 绝对定位 */
+                    position: absolute;
+                    width: 30px;
+                    height: 30px;
+                    background-color: rgb(115, 169, 241);
+                    transform: translate(-50%, -50%);
+                    border-radius: 50%;
+                    /* 执行动画 */
+                    animation: animate 1.5s ease;
+                    /* 设置元素不对指针事件做出反应 */
+                    pointer-events: none;
+                }
+            </style>
+            <button class="btn-Gsmt">提交</button>
+            <script type="text/javascript">
+                // 获取所有按钮
+                const btnsmt = document.querySelectorAll(".btn-Gsmt");
+                // 循环所有按钮，并为每一个按钮添加点击事件
+                btnsmt.forEach(btn => {
+                    btn.addEventListener("click", e => {
+                        // 创建span元素，并设置其位置为鼠标点击的位置
+                        let span = document.createElement("span");
+                        span.style.left = e.offsetX + "px";
+                        span.style.top = e.offsetY + "px";
+                        // 将span元素添加至按钮标签里
+                        btn.appendChild(span);
+                        // 1秒后删除span元素
+                        setTimeout(() => {
+                            span.remove();
+                        }, 1000);
+                    })
+                })
+            </script>
+        </div>
+    </div>
+
+    <div id="main" style="margin-left: 0px;">
+        <span class="Nav_OPbtn" onclick="opNav()">&#8211; <br> &#8211; <br> &#8211;</span>
+        <a id="title3">仪表盘 - 管理后台</a>
+    </div>
+
+    <div id="mySidenav" class="sidenav" style="width: 0px; margin:none;">
+        <button class="btn-G" href="#">🏠仪表盘 &#32; &#32;</button>
+        <a href="https://chcoer.github.io/72Dashboard/background"><button class="btn-G" href="https://chcoer.github.io/72Dashboard/background">💬背景</button></a>
+        <button class="btn-G" href="#">🔖一言</button>
+        <button class="btn-G" href="#">📝标题</button>
+        <button class="btn-G" href="#">⌛课程</button>
+        <button class="btn-G" href="#">📚作业</button>
+        <button class="btn-G" id="smtbtn1" onclick="smtbtn()" href="javascript:void(0);">Submit</button>
+        <script type="text/javascript">
+            // 获取所有按钮
+            const btns = document.querySelectorAll(".btn-G");
+            // 循环所有按钮，并为每一个按钮添加点击事件
+            btns.forEach(btn => {
+                btn.addEventListener("click", e => {
+                    // 创建span元素，并设置其位置为鼠标点击的位置
+                    let span = document.createElement("span");
+                    span.style.left = e.offsetX + "px";
+                    span.style.top = e.offsetY + "px";
+                    // 将span元素添加至按钮标签里
+                    btn.appendChild(span);
+                    // 1秒后删除span元素
+                    setTimeout(() => {
+                        span.remove();
+                    }, 1000);
+                })
+            })
+        </script>
+        <script>
+            function setCookie(cname, cvalue, exdays) {
+                var d = new Date();
+                d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                var expires = "expires=" + d.toGMTString();
+                document.cookie = cname + "=" + cvalue + "; " + expires + ";Samesite=Lax;path='../../';";
+            }
+            function getCookie(cname) {
+                var name = cname + "=";
+                var ca = document.cookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i].trim();
+                    if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
+                }
+                return "";
+            }
+            function smtbtn(){
+                var inputValue = document.getElementById("input1").value;
+                alert(inputValue);
+                setCookie("backgroundimgurl",inputValue,3000);
+            }
+        </script>
+    </div>
+
+
+</body>
+
+</html>

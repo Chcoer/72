@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UFT-8">
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+        }
+
+        #text{
+            margin-top: 20px;
+            margin-left: 40px;
+            position: fixed;
+            top:8%;
+            width:100%;
+            height: 92%;
+            transition: margin-left.5s;
+        }
+
+        .Nav_OPbtn {
+            transition: 1s;
+            line-height: 5.89px;
+            z-index: 100;
+            position: fixed;
+            left: 2%;
+            top: 2.5%;
+            font-size: 30px;
+            cursor: pointer;
+            color: white;
+        }
+
+        #title1 {
+            text-align: cn;
+        }
+        #title2{
+            color: rgb(44, 44, 44);
+        }
+        #title3 {
+            z-index: 99;
+            position: fixed;
+            left: 5%;
+            top: 2%;
+            font-size: 20px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .sidenav {
+            z-index: 20;
+            background-color: #ffffff00;
+            height: 3000%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 8%;
+            left: 0;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 11px;
+        }
+
+        .sidenav a{
+            z-index: 20;
+            text-decoration: none;
+            font-size: 25px;
+            color: #555555;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav .closebtn {
+            z-index: 20;
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        #main {
+            box-shadow: 0px 2px 6px rgb(65, 65, 65);
+            z-index: 98;
+            position: fixed;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 8%;
+            background-color: rgb(41, 82, 173);
+            transition: margin-left.5s;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+
+        .btn-G {
+            /* 相对定位 */
+            text-align: center;
+            position: relative;
+            border: none;
+            background: white;
+            width: 230px;
+            height: 60px;
+            font-size: 22px;
+            color: rgb(73, 73, 73);
+            /* 字间距 */
+            letter-spacing: 3px;
+            /* 阴影 */
+            cursor: pointer;
+            /* 溢出隐藏 */
+            overflow: hidden;
+            transition: 0.5s;
+        }
+
+        .btn-G:hover {
+            background-color: rgb(235, 235, 235);
+        }
+
+        .btn-G span {
+            /* 绝对定位 */
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: rgb(187, 187, 187);
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            /* 执行动画 */
+            animation: animate 1s ease;
+            /* 设置元素不对指针事件做出反应 */
+            pointer-events: none;
+        }
+
+        /* 定义动画 */
+        @keyframes animate {
+            from {
+                width: 0;
+                height: 0;
+                opacity: 0.5;
+            }
+
+            to {
+                width: 400px;
+                height: 400px;
+                opacity: 0;
+            }
+        }
+    </style>
+
+    <script>
+        var Nav_s = 'close';
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "230px";
+            document.getElementById("main").style.marginLeft = "0px";
+            document.getElementById("text").style.marginLeft = "270px";
+            Nav_s = 'open';
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            document.getElementById("text").style.marginLeft = "40px";
+            Nav_s = 'close';
+        }
+
+        function opNav() {
+            if (Nav_s == 'close') {
+                openNav();
+            }
+            else {
+                closeNav();
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="text">
+        <h1 id="title1">欢迎,这里是仪表盘</h1>
+        <em><h3 id="title2">Welcome,Here is the dashboard</h3></em>
+        <p>本项目由<strong><a href="#">Nick</a></strong>提出创意,最后由<strong><a href="#">Chcoer</a></strong>开发.</p>
+        <p>This project was proposed by <strong><a href="#">Nick</a></strong> and developed by <strong><a href="#">Chcoer</a></strong></p>
+        <p>本项目源代码基于BSD协议共享, 源码仓库位于Github, 链接</p>
+        <p>The source code of this project is based on the <strong>BSD 3.0</strong> protocol sharing, and the source code repository is located on Github. <strong><a href="">Link</a></strong></p>
+        <p>仅作为[隐私保护]中学7年级2班的班级主页 等<strong>个人</strong>/<strong>公益</strong>,不作商业用途.</p>
+        <p>Only for <strong>personal</strong>/<strong>welfare</strong> purposes such as the class homepage of Class 2, Grade 7 in high school, and not for commercial purposes.</p>
+        <p>本项目在开发时借鉴(抄袭)了一些公开博客或代码,若您对于这些代码的版权有任何疑问,请联系<strong><a href="#">Chcoer</a></strong></p>
+        <p>This project borrowed (plagiarized) some public blogs or code during development. If you have any questions about the copyright of these codes, please contact <a href="#"><strong>Chcoer</strong></a>.</p>
+    </div>
+
+    <div id="main" style="margin-left: 0px;">
+        <span class="Nav_OPbtn" onclick="opNav()">&#8211; <br> &#8211; <br> &#8211;</span>
+        <a id="title3">仪表盘 - 管理后台</a>
+    </div>
+
+    <div id="mySidenav" class="sidenav" style="width: 0px; margin:none;">
+        <button class="btn-G" href="#">🏠仪表盘 &#32; &#32;</button>
+        <a href="https://chcoer.github.io/72Dashboard/background"><button class="btn-G" href="https://chcoer.github.io/72Dashboard/background">💬背景</button></a>
+        <button class="btn-G" href="#">🔖一言</button>
+        <button class="btn-G" href="#">📝标题</button>
+        <button class="btn-G" href="#">⌛课程</button>
+        <button class="btn-G" href="#">📚作业</button>
+        <script type="text/javascript">
+            // 获取所有按钮
+            const btns = document.querySelectorAll(".btn-G");
+            // 循环所有按钮，并为每一个按钮添加点击事件
+            btns.forEach(btn => {
+                btn.addEventListener("click", e => {
+                    // 创建span元素，并设置其位置为鼠标点击的位置
+                    let span = document.createElement("span");
+                    span.style.left = e.offsetX + "px";
+                    span.style.top = e.offsetY + "px";
+                    // 将span元素添加至按钮标签里
+                    btn.appendChild(span);
+                    // 1秒后删除span元素
+                    setTimeout(() => {
+                        span.remove();
+                    }, 1000);
+                })
+            })
+        </script>
+    </div>
+
+
+</body>
+
+</html>
