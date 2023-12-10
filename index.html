@@ -44,31 +44,11 @@
             }
             var backg = document.getElementById('img1');
             var backgt = String(getCookie_CW("backgroundimgurl"));
-            alert(String(getCookie_CW("backgroundimgurl")));
             backg.src = backgt;
+            alert(String(getCookie_CW("backgroundimgurl")));
             //alert(getCookie('hw1'));
 
         }
-
-        //alert(getCookie('hw1'));
-
-        function gethw(idn, cname) {
-            var x = document.getElementById(idn);
-            x.innerHTML = getCookie(cname);
-        }
-
-        var x = document.getElementById('hw1');
-        var xt = String(getCookie('hw1')).replace(/_/g, " <br> ");
-        //alert(xt);
-        x.innerText = xt;
-
-        var y = document.getElementById('hw2');
-        var yt = String(getCookie('hw2')).replace(/_/g, " <br> ");
-        y.innerText = yt;
-
-        var z = document.getElementById('hw3');
-        var zt = String(getCookie('hw3')).replace(/_/g, " <br> ");
-        z.innerText = zt;
 
         var elementId = "myElement";
         var element = document.getElementById(elementId);
