@@ -43,10 +43,11 @@
                 return "";
             }*/
 
+            var iframe = document.getElementById("myFrame");
+            var childWindow = iframe.contentWindow;
+
             function getCookie_CW(cname) {
                 var name = cname + "=";
-                var iframe = document.getElementById("myFrame");
-                var childWindow = iframe.contentWindow;
                 var ca = childWindow.document.cookie.split(';');
                 for (var i = 0; i < ca.length; i++) {
                     var c = ca[i].trim();
