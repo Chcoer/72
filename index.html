@@ -30,18 +30,6 @@
             var z = document.getElementById('hw3');
             var zt = String(getCookie('hw3')).replace(/_/g, "\n");
             z.innerText = zt;
-            /*
-            function getCookie_CW(cname) {
-                var iframe = document.getElementById("myFrame");
-                var childWindow = iframe.contentWindow;
-                var cookie = childWindow.document.cookie;
-                var ca = childWindow.document.cookie.split(';');
-                for (var i = 0; i < ca.length; i++) {
-                    var c = ca[i].trim();
-                    if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
-                }
-                return "";
-            }*/
 
             var iframe = document.getElementById("myFrame");
             var childWindow = iframe.contentWindow;
@@ -58,8 +46,8 @@
 
             var backg = document.getElementById('img1');
             var backgt = String(getCookie_CW("backgroundimgurl"));
+            alert(getCookie_CW("backgroundimgurl"));
             backg.src = backgt;
-            alert(String(getCookie_CW("backgroundimgurl")));
             //alert(getCookie('hw1'));
 
         }
