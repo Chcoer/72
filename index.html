@@ -31,12 +31,9 @@
             var zt = String(getCookie('hw3')).replace(/_/g, "\n");
             z.innerText = zt;
 
-            var iframe = document.getElementById("myFrame");
-            var childWindow = iframe.contentWindow;
-
-            function getCookie_CW(cname) {
+            function getCookie_CW(cname,cid) {
                 var name = cname + "=";
-                var ca = childWindow.document.cookie.split(';');
+                var ca = cid.document.cookie.split(';');
                 for (var i = 0; i < ca.length; i++) {
                     var c = ca[i].trim();
                     if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
@@ -44,11 +41,27 @@
                 return "";
             }
 
+
+            var iframe = document.getElementById("myFrame1");
+            var childWindow = iframe.contentWindow;
+
             var backg = document.getElementById('img1');
-            var backgt = String(getCookie_CW("backgroundimgurl"));
+            var backgt = String(getCookie_CW("backgroundimgurl",childWindow));
+            if(backgt == ''){
+                backgt = 'https://baotangguo.cn:8081/';
+            }
             backg.src = backgt;
             //alert(getCookie('hw1'));
 
+            iframe = document.getElementById("myFrame2");
+            childWindow = iframe.contentWindow;
+
+            var t2c = document.getElementById('img1');
+            var t2ct = String(getCookie_CW("t2color",childWindow));
+            if(t2ct == ''){
+                t2ct = '';
+            }
+            t2c.src = t2ct;
         }
 
         var elementId = "myElement";
@@ -328,7 +341,7 @@
             z-index: -1;
         }
 
-        #myFrame {
+        .myFrame {
             display: none;
             visibility: hidden;
         }
@@ -337,7 +350,8 @@
 
 <body>
     <div>
-        <iframe id="myFrame" src="https://chcoer.github.io/72/dashboard/background"></iframe>
+        <iframe id="myFrame1" class="myFrame" src="https://chcoer.github.io/72/dashboard/background"></iframe>
+        <iframe id="myFrame2" class="myFrame" src="https://chcoer.github.io/72/dashboard/hitokoto"></iframe>
     </div>
 
     <div id="mySidenav" class="sidenav">
