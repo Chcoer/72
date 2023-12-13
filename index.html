@@ -486,6 +486,12 @@
             if (min <= 9) {
                 smin = '0' + String(min);
             }
+            var nowlesson = lesson[ret - 1];
+            if(week == 4 ){
+                if(nowlesson == "体活"){
+                    nowlesson = '语文';
+                }
+            }//临时补丁 BY XYT 2023.12.13
             inn.innerHTML = shour + ':' + smin + ',' + lesson[ret - 1];
             setTimeout(time1, 1000);
         }
