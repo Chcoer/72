@@ -31,9 +31,12 @@
             var zt = String(getCookie('hw3')).replace(/_/g, "\n");
             z.innerText = zt;
 
-            function getCookie_CW(cname,cid) {
+            var iframe = document.getElementById("myFrame");
+            var childWindow = iframe.contentWindow;
+
+            function getCookie_CW(cname) {
                 var name = cname + "=";
-                var ca = cid.document.cookie.split(';');
+                var ca = childWindow.document.cookie.split(';');
                 for (var i = 0; i < ca.length; i++) {
                     var c = ca[i].trim();
                     if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
@@ -41,27 +44,11 @@
                 return "";
             }
 
-
-            var iframe = document.getElementById("myFrame1");
-            var childWindow = iframe.contentWindow;
-
             var backg = document.getElementById('img1');
-            var backgt = String(getCookie_CW("backgroundimgurl",childWindow));
-            if(backgt == ''){
-                backgt = 'https://baotangguo.cn:8081/';
-            }
+            var backgt = String(getCookie_CW("backgroundimgurl"));
             backg.src = backgt;
             //alert(getCookie('hw1'));
 
-            iframe = document.getElementById("myFrame2");
-            childWindow = iframe.contentWindow;
-
-            var t2c = document.getElementById('img1');
-            var t2ct = String(getCookie_CW("t2color",childWindow));
-            if(t2ct == ''){
-                t2ct = '';
-            }
-            t2c.src = t2ct;
         }
 
         var elementId = "myElement";
@@ -341,7 +328,7 @@
             z-index: -1;
         }
 
-        .myFrame {
+        #myFrame {
             display: none;
             visibility: hidden;
         }
@@ -350,8 +337,7 @@
 
 <body>
     <div>
-        <iframe id="myFrame1" class="myFrame" src="https://chcoer.github.io/72/dashboard/background"></iframe>
-        <iframe id="myFrame2" class="myFrame" src="https://chcoer.github.io/72/dashboard/hitokoto"></iframe>
+        <iframe id="myFrame" src="https://chcoer.github.io/72/dashboard/background"></iframe>
     </div>
 
     <div id="mySidenav" class="sidenav">
@@ -486,12 +472,6 @@
             if (min <= 9) {
                 smin = '0' + String(min);
             }
-            var nowlesson = lesson[ret - 1];
-            if(week == 4 ){
-                if(nowlesson == "体活"){
-                    nowlesson = '语文';
-                }
-            }//临时补丁 BY XYT 2023.12.13
             inn.innerHTML = shour + ':' + smin + ',' + lesson[ret - 1];
             setTimeout(time1, 1000);
         }
