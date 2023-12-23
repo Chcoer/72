@@ -18,6 +18,10 @@
 
         window.onload = function () {
 
+            var imgx = document.getElementById('img1');
+            var y=0;
+            imgx.style.filter = 'blur(3px)';
+
             var x = document.getElementById('hw1');
             var xt = String(getCookie('hw1')).replace(/_/g, "\n");
             //alert(xt);
@@ -192,7 +196,7 @@
             display: block;
             width: 100%;
             height: 100%;
-            filter: blur(3px);
+            filter: blur(0px);
             position: absolute;
             top: 0%;
             left: 0%;
@@ -213,9 +217,10 @@
         }
 
         #Title2 {
+            z-index: 1900;
             text-align: center;
             /*text-shadow: 2px 2px grey;*/
-            color: rgb(190, 190, 190);
+            color: rgb(255, 255, 255);
             position: absolute;
             top: 62%;
             left: 22%;
@@ -223,7 +228,7 @@
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             font-family: "Comic Sans MS", cursive, sans-serif;
             word-wrap: break-word;
-            text-shadow: 0px 0px 2px rgb(59, 59, 59);
+            /*text-shadow: 0px 0px 2px rgb(59, 59, 59);*/
         }
 
         body {
@@ -402,7 +407,7 @@
         </div>
         <h1 id="Title">Home Page</h1>
         <em id="Title2">Website Link List</em>
-        <img id="img1" src="" alt="piQ0wAH.png" border="0" />
+        <img id="img1" src="" alt="piQ0wAH.png" border="0"/>
         <!--<img id="img1" src="https://cdn.luogu.com.cn/upload/image_hosting/8pjx9lu6.png" alt="piQ0wAH.png" border="0" />-->
 
     </div>
