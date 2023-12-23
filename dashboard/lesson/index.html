@@ -395,9 +395,10 @@
                 return "";
             }
             function smtbtn() {
-                var inputValue = document.getElementById("input1").value;
-                alert(inputValue);
-                setCookie("backgroundimgurl", inputValue, 3000);
+                for (var i = 1; i <= 9; i++) {
+                    var temp = document.getElementById("input" + String(i));
+                    setCookie("l"+String(i), temp.value, 3000);
+                }
             }
         </script>
     </div>
