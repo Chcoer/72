@@ -19,7 +19,7 @@
         window.onload = function () {
 
             var imgx = document.getElementById('img1');
-            var y=0;
+            var y = 0;
             imgx.style.filter = 'blur(3px)';
 
             var x = document.getElementById('hw1');
@@ -50,8 +50,8 @@
 
             var backg = document.getElementById('img1');
             var backgt = String(getCookie_CW("backgroundimgurl"));
-            if(backgt == 'undefined'){
-                backgt="https://cdn.pixabay.com/photo/2018/11/24/01/35/christmas-motif-3834860_1280.jpg"
+            if (backgt == 'undefined') {
+                backgt = "https://cdn.pixabay.com/photo/2018/11/24/01/35/christmas-motif-3834860_1280.jpg"
             }
             backg.src = backgt;
             //alert(getCookie('hw1'));
@@ -87,7 +87,7 @@
             //定义生成一片雪花的毫秒数
             var millisec = 100;
             //2、设置第一个定时器，周期性定时器，每隔一段时间（millisec）生成一片雪花；
-            setInterval(function() { //页面加载之后，定时器就开始工作
+            setInterval(function () { //页面加载之后，定时器就开始工作
                 //随机生成雪花下落 开始 时left的值，相当于开始时X轴的位置
                 var startLeft = Math.random() * documentWidth;
 
@@ -123,7 +123,7 @@
 
                 //设置第二个定时器，一次性定时器，
                 //当第一个定时器生成雪花，并在页面上渲染出来后，修改雪花的样式，让雪花动起来；
-                setTimeout(function() {
+                setTimeout(function () {
                     //第二次修改样式
                     cloneFlake.style.cssText += `
                                 left: ${endLeft}px;
@@ -132,7 +132,7 @@
                             `;
 
                     //4、设置第三个定时器，当雪花落下后，删除雪花。
-                    setTimeout(function() {
+                    setTimeout(function () {
                         cloneFlake.remove();
                     }, durationTime);
                 }, 0);
@@ -142,7 +142,7 @@
         snow();
     </script>
     <style>
-        #bc{
+        #bc {
             z-index: -1;
             position: fixed;
             overflow: hidden;
@@ -410,10 +410,11 @@
             visibility: hidden;
         }
 
-        #page{
+        #page {
             overflow-y: hidden;
         }
-        body{
+
+        body {
             overflow: hidden;
         }
     </style>
@@ -421,255 +422,265 @@
 
 <body>
     <div id="page">
-    <div>
-        <iframe id="myFrame" src="https://chcoer.github.io/72/dashboard/background"></iframe>
-    </div>
+        <div>
+            <iframe id="myFrame" src="https://chcoer.github.io/72/dashboard/background"></iframe>
+        </div>
 
-    <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="https://care.seewo.com/">Class</a>
-        <a href="https://chcoer.github.io/72/dashboard/">Settings</a>
-        <!--<a href="#">Services</a>-->
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="https://care.seewo.com/">Class</a>
+            <a href="https://chcoer.github.io/72/dashboard/">Settings</a>
+            <!--<a href="#">Services</a>-->
 
-        <button class="accordion">Homework</button>
-        <div class="panel">
+            <button class="accordion">Homework</button>
+            <div class="panel">
 
-            <a href="javascript:void(0)" onclick=op(myModal1)>Chinese</a>
-            <a href="javascript:void(0)" onclick=op(myModal2)>Mathmatic</a>
-            <a href="javascript:void(0)" onclick=op(myModal3)>English</a>
-            <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                <a href="javascript:void(0)" onclick=op(myModal1)>Chinese</a>
+                <a href="javascript:void(0)" onclick=op(myModal2)>Mathmatic</a>
+                <a href="javascript:void(0)" onclick=op(myModal3)>English</a>
+                <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
                 dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
                 ea commodo consequat.</p>-->
-        </div>
+            </div>
 
 
-        <script>
+            <script>
 
-            function op(m) {
-                m.style.display = "block";
-            }
+                function op(m) {
+                    m.style.display = "block";
+                }
 
-            function cl(m) {
-                m.style.display = "none";
-            }
+                function cl(m) {
+                    m.style.display = "none";
+                }
 
-        </script>
+            </script>
 
-        <!--
+            <!--
             <a href="#">Clients</a>
             <a href="#">Contact</a>-->
-        <script>
-            var acc = document.getElementsByClassName("accordion");
-            var i;
+            <script>
+                var acc = document.getElementsByClassName("accordion");
+                var i;
 
-            for (i = 0; i < acc.length; i++) {
-                acc[i].onclick = function () {
-                    this.classList.toggle("active");
-                    var panel = this.nextElementSibling;
-                    if (panel.style.maxHeight) {
-                        panel.style.maxHeight = null;
-                    } else {
-                        panel.style.maxHeight = panel.scrollHeight + "px";
+                for (i = 0; i < acc.length; i++) {
+                    acc[i].onclick = function () {
+                        this.classList.toggle("active");
+                        var panel = this.nextElementSibling;
+                        if (panel.style.maxHeight) {
+                            panel.style.maxHeight = null;
+                        } else {
+                            panel.style.maxHeight = panel.scrollHeight + "px";
+                        }
                     }
                 }
+            </script>
+        </div>
+
+        <div id="main" style="z-index: 19999;">
+            <span id="open" style="font-size:30px;cursor:pointer;z-index:20000;" onclick="openNav()">&#9776;</span>
+        </div>
+
+        <div id="bc"></div>
+        <div>
+            <!--实时时间-->
+            <div id="div1">
+
+            </div>
+            <h1 id="Title">Home Page</h1>
+            <em id="Title2">Website Link List</em>
+            <img id="img1" src="" alt="piQ0wAH.png" border="0" />
+            <!--<img id="img1" src="https://cdn.luogu.com.cn/upload/image_hosting/8pjx9lu6.png" alt="piQ0wAH.png" border="0" />-->
+
+        </div>
+
+        <script>
+            Fet();
+            function Fet() {
+                fetch('https://v1.hitokoto.cn/?c=i&c=d&c=k&c=h')
+                    .then(response => response.json())
+                    .then(data => {
+                        const hitokoto = document.getElementById('Title2');
+                        //hitokoto.href = `https://hitokoto.cn/?uuid=${data.uuid}`
+                        var s = String(data.hitokoto);
+                        if (String(data.from) != 'null') {
+                            s = s + '   ——' + String(data.from);
+                        }
+                        if (String(data.from_who) != 'null') {
+                            s = s + ',' + String(data.from_who);
+                        }
+                        //var s=String(data.hitokoto) + '   ——' + String(data.from) + ',' + String(data.from_who);
+                        hitokoto.innerText = s;
+                    })
+                    .catch(console.error)
+                setTimeout(Fet, 30000);
             }
         </script>
-    </div>
+        <script>
+            function time1() {
+                var inn = document.getElementById('Title');
 
-    <div id="main" style="z-index: 19999;">
-        <span id="open" style="font-size:30px;cursor:pointer;z-index=20000;" onclick="openNav()">&#9776;</span>
-    </div>
+                var date = new Date();
 
-    <div id="bc"></div>
-    <div>
-        <!--实时时间-->
-        <div id="div1">
-
-        </div>
-        <h1 id="Title">Home Page</h1>
-        <em id="Title2">Website Link List</em>
-        <img id="img1" src="" alt="piQ0wAH.png" border="0"/>
-        <!--<img id="img1" src="https://cdn.luogu.com.cn/upload/image_hosting/8pjx9lu6.png" alt="piQ0wAH.png" border="0" />-->
-
-    </div>
-
-    <script>
-        Fet();
-        function Fet() {
-            fetch('https://v1.hitokoto.cn/?c=i&c=d&c=k&c=h')
-                .then(response => response.json())
-                .then(data => {
-                    const hitokoto = document.getElementById('Title2');
-                    //hitokoto.href = `https://hitokoto.cn/?uuid=${data.uuid}`
-                    var s = String(data.hitokoto);
-                    if (String(data.from) != 'null') {
-                        s = s + '   ——' + String(data.from);
-                    }
-                    if (String(data.from_who) != 'null') {
-                        s = s + ',' + String(data.from_who);
-                    }
-                    //var s=String(data.hitokoto) + '   ——' + String(data.from) + ',' + String(data.from_who);
-                    hitokoto.innerText = s;
-                })
-                .catch(console.error)
-            setTimeout(Fet, 30000);
-        }
-    </script>
-    <script>
-        function time1() {
-            var inn = document.getElementById('Title');
-
-            var date = new Date();
-
-            var month = date.getMonth() + 1;
-            var year = date.getFullYear();
-            var day = date.getDate();
-            var week = date.getDay();
-            var hour = date.getHours();
-            var min = date.getMinutes();
-            var sec = date.getSeconds();
-            var week1;
-            switch (week) {
-                case 0: week1 = '星期日'; break;
-                case 1: week1 = '星期一'; break;
-                case 2: week1 = '星期二'; break;
-                case 3: week1 = '星期三'; break;
-                case 4: week1 = '星期四'; break;
-                case 5: week1 = '星期五'; break;
-                case 6: week1 = '星期六'; break;
-            }
-            var lesson = ["语文", "英语", "体育", "数学", "地理", "科学", "音乐", "体活", "英语", "历史", "体育", "美术", "英语", "数学", "语文", "语文", "英语", "数学", "地理", "数学", "英语", "语文", "科学", "体育", "历史", "活动", "语文", "语文", "道法", "数学", "劳技", "集邮", "英语", "体活", "数学", "活动", "数学", "语文", "英语", "科学", "体育", "校会", "劳动", "社团1", "社团2"];
-            var list = [520, 570, 655, 705, 820, 880, 930, 980, 1050];
-            var ret = 0;
-            var now = hour * 60 + min;
-            for (var x = 9; x >= 1; x--) {
-                if (now <= list[x - 1]) {
-                    ret = x;
+                var month = date.getMonth() + 1;
+                var year = date.getFullYear();
+                var day = date.getDate();
+                var week = date.getDay();
+                var hour = date.getHours();
+                var min = date.getMinutes();
+                var sec = date.getSeconds();
+                var week1;
+                switch (week) {
+                    case 0: week1 = '星期日'; break;
+                    case 1: week1 = '星期一'; break;
+                    case 2: week1 = '星期二'; break;
+                    case 3: week1 = '星期三'; break;
+                    case 4: week1 = '星期四'; break;
+                    case 5: week1 = '星期五'; break;
+                    case 6: week1 = '星期六'; break;
                 }
-            }
-            //alert('E' + String(ret));
-            ret = (week - 1) * 9 + ret;
-            //alert(ret);
-            var shour = String(hour);
-            if (hour <= 9) {
-                shour = '0' + String(hour);
-            }
-            var smin = String(min);
-            if (min <= 9) {
-                smin = '0' + String(min);
-            }
-            inn.innerHTML = shour + ':' + smin + ',' + lesson[ret - 1];
-            setTimeout(time1, 1000);
-        }
-        time1();
-    </script>
-    <div id="Homework">
-        <h3 class="ht">语文</h3>
-        <p class="hw" id="hw1">暂无</p>
-        <h3 class="ht">数学</h3>
-        <p class="hw" id="hw2">暂无</p>
-        <h3 class="ht">英语</h3>
-        <p class="hw" id="hw3">暂无</p>
-    </div>
-
-    <div id="myModal1" class="modal" style="display: none;">
-
-
-        <div class="modal-content">
-            <span class="close" onclick=cl(myModal1)>&times;</span>
-            <textarea class="ta" id="myTextarea1" rows="5" cols="50"></textarea>
-            <button class="smt" href="javascript:void(0)"
-                onclick="submitText(myTextarea1,'hw1','hw1');cl(myModal1)">提交</button>
-        </div>
-
-    </div>
-
-    <div id="myModal2" class="modal" style="display: none;">
-
-
-        <div class="modal-content">
-            <span class="close" onclick=cl(myModal2)>&times;</span>
-            <textarea id="myTextarea2" class="ta" rows="5" cols="50"></textarea>
-
-            <button class="smt" href="javascript:void(0)"
-                onclick="submitText(myTextarea2,'hw2','hw2');cl(myModal2)">提交</button>
-        </div>
-
-    </div>
-
-    <div id="myModal3" class="modal" style="display: none;">
-
-
-        <div class="modal-content">
-            <span class="close" onclick=cl(myModal3)>&times;</span>
-            <textarea id="myTextarea3" class="ta" rows="5" cols="50"></textarea>
-
-            <button class="smt" href="javascript:void(0)"
-                onclick="submitText(myTextarea3,'hw3','hw3');cl(myModal3)">提交</button>
-        </div>
-
-    </div>
-
-    <script>
-        var textarea1 = document.getElementById("myTextarea1");
-        var textarea2 = document.getElementById("myTextarea2");
-        var textarea3 = document.getElementById("myTextarea3");
-        textarea1.maxLength = 200;
-        textarea1.placeholder = "请输入文本";
-        textarea2.maxLength = 200;
-        textarea2.placeholder = "请输入文本";
-        textarea3.maxLength = 200;
-        textarea3.placeholder = "请输入文本";
-        function submitText(textarea, cname, idname) {
-            var text = textarea.value;
-            text = String(textarea.value).replace(/\n/g, "_");
-            alert(text);
-            // alert("您输入的文本是：" + text);
-            setCookie(cname, text, 3000);
-            var x = document.getElementById(idname);  //查找元素
-            // alert(getCookie(cname));
-            var t = getCookie(cname);
-            //t = textarea.value;
-            var newt = t.replace(/_/g, " <br> ");
-            /*for(var i=0;i<=lent;i++){
-                if(t[i]=='_'){
-                    t[i]=' ';
-                    //alert(i);
-                    lent = lent+5;
-                    t[i+1]='<';
-                    t[i+2]='b';
-                    t[i+3]='r';
-                    t[i+4]='>';
-                    t[i+5]=' ';
-                    alert(t);
+                var lesson = ["语文", "英语", "体育", "数学", "地理", "科学", "音乐", "体活", "英语", "历史", "体育", "美术", "英语", "数学", "语文", "语文", "英语", "数学", "地理", "数学", "英语", "语文", "科学", "体育", "历史", "活动", "语文", "语文", "道法", "数学", "劳技", "集邮", "英语", "体活", "数学", "活动", "数学", "语文", "英语", "科学", "体育", "校会", "劳动", "社团1", "社团2"];
+                var list = [520, 570, 655, 705, 820, 880, 930, 980, 1050];
+                var ret = 0;
+                var now = hour * 60 + min;
+                for (var x = 9; x >= 1; x--) {
+                    if (now <= list[x - 1]) {
+                        ret = x;
+                    }
                 }
-            }*/
-            //alert(newt);
-            x.innerHTML = newt;    //改变内容
-        }
-
-        function setlocal(cname, cvalue) {
-            setItem(cname, cvalue);
-        }
-        function getlocal(cname) {
-            return getItem(cname);
-        }
-        function setCookie(cname, cvalue, exdays) {
-            var d = new Date();
-            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-            var expires = "expires=" + d.toGMTString();
-            document.cookie = cname + "=" + cvalue + "; " + expires;
-        }
-        function getCookie(cname) {
-            var name = cname + "=";
-            var ca = document.cookie.split(';');
-            for (var i = 0; i < ca.length; i++) {
-                var c = ca[i].trim();
-                if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
+                function getCookie(cname) {
+                    var name = cname + "=";
+                    var ca = document.cookie.split(';');
+                    for (var i = 0; i < ca.length; i++) {
+                        var c = ca[i].trim();
+                        if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
+                    }
+                    return "";
+                }
+                var nowl = String(getCookie("l"+String(ret)));
+                //alert('E' + String(ret));
+                ret = (week - 1) * 9 + ret;
+                //alert(ret);
+                var shour = String(hour);
+                if (hour <= 9) {
+                    shour = '0' + String(hour);
+                }
+                var smin = String(min);
+                if (min <= 9) {
+                    smin = '0' + String(min);
+                }
+                inn.innerHTML = shour + ':' + smin + ',' + nowl;
+                setTimeout(time1, 1000);
             }
-            return "";
-        }
-    </script>
+            time1();
+        </script>
+        <div id="Homework">
+            <h3 class="ht">语文</h3>
+            <p class="hw" id="hw1">暂无</p>
+            <h3 class="ht">数学</h3>
+            <p class="hw" id="hw2">暂无</p>
+            <h3 class="ht">英语</h3>
+            <p class="hw" id="hw3">暂无</p>
+        </div>
+
+        <div id="myModal1" class="modal" style="display: none;">
+
+
+            <div class="modal-content">
+                <span class="close" onclick=cl(myModal1)>&times;</span>
+                <textarea class="ta" id="myTextarea1" rows="5" cols="50"></textarea>
+                <button class="smt" href="javascript:void(0)"
+                    onclick="submitText(myTextarea1,'hw1','hw1');cl(myModal1)">提交</button>
+            </div>
+
+        </div>
+
+        <div id="myModal2" class="modal" style="display: none;">
+
+
+            <div class="modal-content">
+                <span class="close" onclick=cl(myModal2)>&times;</span>
+                <textarea id="myTextarea2" class="ta" rows="5" cols="50"></textarea>
+
+                <button class="smt" href="javascript:void(0)"
+                    onclick="submitText(myTextarea2,'hw2','hw2');cl(myModal2)">提交</button>
+            </div>
+
+        </div>
+
+        <div id="myModal3" class="modal" style="display: none;">
+
+
+            <div class="modal-content">
+                <span class="close" onclick=cl(myModal3)>&times;</span>
+                <textarea id="myTextarea3" class="ta" rows="5" cols="50"></textarea>
+
+                <button class="smt" href="javascript:void(0)"
+                    onclick="submitText(myTextarea3,'hw3','hw3');cl(myModal3)">提交</button>
+            </div>
+
+        </div>
+
+        <script>
+            var textarea1 = document.getElementById("myTextarea1");
+            var textarea2 = document.getElementById("myTextarea2");
+            var textarea3 = document.getElementById("myTextarea3");
+            textarea1.maxLength = 200;
+            textarea1.placeholder = "请输入文本";
+            textarea2.maxLength = 200;
+            textarea2.placeholder = "请输入文本";
+            textarea3.maxLength = 200;
+            textarea3.placeholder = "请输入文本";
+            function submitText(textarea, cname, idname) {
+                var text = textarea.value;
+                text = String(textarea.value).replace(/\n/g, "_");
+                alert(text);
+                // alert("您输入的文本是：" + text);
+                setCookie(cname, text, 3000);
+                var x = document.getElementById(idname);  //查找元素
+                // alert(getCookie(cname));
+                var t = getCookie(cname);
+                //t = textarea.value;
+                var newt = t.replace(/_/g, " <br> ");
+                /*for(var i=0;i<=lent;i++){
+                    if(t[i]=='_'){
+                        t[i]=' ';
+                        //alert(i);
+                        lent = lent+5;
+                        t[i+1]='<';
+                        t[i+2]='b';
+                        t[i+3]='r';
+                        t[i+4]='>';
+                        t[i+5]=' ';
+                        alert(t);
+                    }
+                }*/
+                //alert(newt);
+                x.innerHTML = newt;    //改变内容
+            }
+
+            function setlocal(cname, cvalue) {
+                setItem(cname, cvalue);
+            }
+            function getlocal(cname) {
+                return getItem(cname);
+            }
+            function setCookie(cname, cvalue, exdays) {
+                var d = new Date();
+                d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                var expires = "expires=" + d.toGMTString();
+                document.cookie = cname + "=" + cvalue + "; " + expires;
+            }
+            function getCookie(cname) {
+                var name = cname + "=";
+                var ca = document.cookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i].trim();
+                    if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
+                }
+                return "";
+            }
+        </script>
     </div>
 
 </body>
