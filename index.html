@@ -24,6 +24,9 @@
 
             var x = document.getElementById('hw1');
             var xt = String(getCookie('hw1')).replace(/_/g, "\n");
+            if (xt == getCookie('undefined')) {
+                xt = '暂无';
+            }
             //alert(xt);
             x.innerText = xt;
 
