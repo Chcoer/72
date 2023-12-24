@@ -29,14 +29,14 @@
 
             var y = document.getElementById('hw2');
             var yt = String(getCookie('hw2')).replace(/_/g, "\n");
-            if(yt == getCookie('undefined')){
+            if (yt == getCookie('undefined')) {
                 yt = '暂无';
             }
             y.innerText = yt;
 
             var z = document.getElementById('hw3');
             var zt = String(getCookie('hw3')).replace(/_/g, "\n");
-            if(zt == getCookie('undefined')){
+            if (zt == getCookie('undefined')) {
                 zt = '暂无';
             }
             z.innerText = zt;
@@ -430,6 +430,7 @@
     <div id="page">
         <div>
             <iframe id="myFrame" src="https://chcoer.github.io/72/dashboard/background"></iframe>
+            <iframe id="lFrame" src="https://chcoer.github.io/72/dashboard/lesson"></iframe>
         </div>
 
         <div id="mySidenav" class="sidenav">
@@ -554,16 +555,19 @@
                         ret = x;
                     }
                 }
-                function getCookie(cname) {
+                var iframel = document.getElementById("lFrame");
+                var childWindowl = iframel.contentWindow;
+
+                function getCookie_L(cname) {
                     var name = cname + "=";
-                    var ca = document.cookie.split(';');
+                    var ca = childWindowl.document.cookie.split(';');
                     for (var i = 0; i < ca.length; i++) {
                         var c = ca[i].trim();
                         if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
                     }
                     return "";
                 }
-                var nowl = String(getCookie("l"+String(ret)));
+                var nowl = String(getCookie_L("l" + String(ret)));
                 //alert('E' + String(ret));
                 ret = (week - 1) * 9 + ret;
                 //alert(ret);
