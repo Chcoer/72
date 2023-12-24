@@ -185,7 +185,7 @@
 <body>
     <div id="text">
         <style>
-            #form {
+            .form {
                 left: 0.5%;
                 width: 50%;
                 height: 50vh;
@@ -195,7 +195,7 @@
                 /* 新增 */
             }
 
-            #form input {
+            .form input {
                 font-size: 17px;
                 height: 2rem;
                 width: 110%;
@@ -207,7 +207,7 @@
                 /* 新增 */
             }
 
-            #form label {
+            .form label {
                 font-size: 14px;
                 position: absolute;
                 width: 90%;
@@ -218,7 +218,7 @@
             }
 
 
-            #form label::after {
+            .form label::after {
                 content: "";
                 /* 这个很关键，我们需要这个属性底部边框才会显示出来 */
                 height: 3rem;
@@ -234,7 +234,7 @@
                 /* 添加动画来达到平滑移动的效果 */
             }
 
-            #form label span {
+            .form label span {
                 position: absolute;
                 bottom: -3rem;
                 left: 0;
@@ -242,8 +242,8 @@
                 /* 动画，达到平滑移动的效果 */
             }
 
-            #form input:focus+label span,
-            #form input:valid+label span {
+            .form input:focus+label span,
+            .form input:valid+label span {
                 transform: translateY(-160%);
                 /* 将 Username向上平移 */
                 font-Size: 0.93rem;
@@ -252,14 +252,14 @@
                 /* 高亮颜色 */
             }
 
-            #form input:focus+label::after,
-            #form input:valid+label::after {
+            .form input:focus+label::after,
+            .form input:valid+label::after {
                 transform: translateX(0);
                 /* 将左边的高亮底部边框平移回来 */
             }
         </style>
         <h1>更改前台背景信息</h1>
-        <div id="form">
+        <div id="form1" class="form">
             <input id="input1" tyPE="text" required />
             <label>
                 <span>Background-img</span>
@@ -324,6 +324,17 @@
                     })
                 })
             </script>
+        </div><div id="form2" class="form" style="position:absolute; top: 23%;">
+            <input id="input2" tyPE="text" required />
+            <label>
+                <span>背景遮罩不透明度(1000~0)</span>
+            </label>
+        </div>
+        <div id="form3" class="form" style="position:absolute; top: 35%;">
+            <input id="input3" tyPE="text" required />
+            <label>
+                <span>背景模糊度(0~5)</span>
+            </label>
         </div>
     </div>
 
@@ -378,8 +389,11 @@
             }
             function smtbtn(){
                 var inputValue = document.getElementById("input1").value;
-                alert(inputValue);
                 setCookie("backgroundimgurl",inputValue,3000);
+                inputValue =document.getElementById("input2").value;
+                setCookie("backgroundcolor",inputValue,3000);
+                inputValue =document.getElementById("input3").value;
+                setCookie("backgroundblur",inputValue,3000);
             }
         </script>
     </div>

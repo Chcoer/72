@@ -18,9 +18,23 @@
 
         window.onload = function () {
 
+
+            function getCookie_s(cname,childWindow) {
+                var name = cname + "=";
+                var ca = childWindow.document.cookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i].trim();
+                    if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
+                }
+                return "";
+            }
+
+            var xframe = document.getElementById("myFrame");
+            var childWindowx = xframe.contentWindow;
+
             var imgx = document.getElementById('img1');
-            var y = 0;
-            imgx.style.filter = 'blur(3px)';
+            var y = getCookie_s("backgroundblur",childWindowx);
+            imgx.style.filter = 'blur('+String(y)+'px)';
 
             var x = document.getElementById('hw1');
             var xt = String(getCookie('hw1')).replace(/_/g, "\n");
@@ -63,7 +77,17 @@
                 backgt = "https://cdn.pixabay.com/photo/2018/11/24/01/35/christmas-motif-3834860_1280.jpg"
             }
             backg.src = backgt;
-            //alert(getCookie('hw1'));
+
+            backg =document.getElementById("bc");
+            var backgt2 = Number(getCookie_CW("backgroundcolor"));
+            if (backgt2 == getCookie('undefined')) {
+                backgt2 = 0.356;
+            }
+            else{
+                backgt2 = backgt2/1000;
+            }
+            backg.style.backgroundColor = "rgba(0, 0, 0, "+String(backgt2)+")";
+
             var tempt;
             for(var i=1;i<=3;i++){
                 tempt=document.getElementById("myTextarea"+String(i));
