@@ -64,7 +64,11 @@
             }
             backg.src = backgt;
             //alert(getCookie('hw1'));
-
+            var tempt;
+            for(var i=1;i<=3;i++){
+                tempt=document.getElementById("myTextarea"+String(i));
+                tempt.value = getCookie("hw"+String(i));
+            }
         }
 
         var elementId = "myElement";
