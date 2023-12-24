@@ -23,9 +23,9 @@
         function smt() {
             for (var i = 1; i <= 9; i++) {
                 var temp = document.getElementById("input" + String(i));
-                setCookie("l"+String(i), temp.value, 3000);
+                setCookie("l" + String(i), temp.value, 3000);
             }
-            setInterval(smt,1000);
+            setInterval(smt, 1000);
         }
     </script>
     <style>
@@ -206,6 +206,16 @@
         }
 
         window.onload = function () {
+
+            function getCookie(cname) {
+                var name = cname + "=";
+                var ca = document.cookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i].trim();
+                    if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
+                }
+                return "";
+            }
             var date = new Date();
             var week = date.getDay();
             var all_lesson = ["语文", "英语", "体育", "数学", "地理", "科学", "音乐", "体活", "英语", "历史", "体育", "美术", "英语", "数学", "语文", "语文", "英语", "数学", "地理", "数学", "英语", "语文", "科学", "体育", "历史", "活动", "语文", "语文", "道法", "数学", "劳技", "集邮", "英语", "体活", "数学", "活动", "数学", "语文", "英语", "科学", "体育", "校会", "劳动", "社团1", "社团2"];
@@ -216,7 +226,12 @@
             for (var i = 1; i <= 9; i++) {
                 lesson[i] = all_lesson[(week - 1) * 9 + i - 1];
                 var temp = document.getElementById("input" + String(i));
-                temp.value = lesson[i];
+                if (getCookie("l"+String(i)) == getCookie("undefined")){
+                    temp.value = lesson[i];
+                }
+                else{
+                    temp.value = getCookie("l"+String(i));
+                }                
             }
         }
     </script>
@@ -412,7 +427,7 @@
             function smtbtn() {
                 for (var i = 1; i <= 9; i++) {
                     var temp = document.getElementById("input" + String(i));
-                    setCookie("l"+String(i), temp.value, 3000);
+                    setCookie("l" + String(i), temp.value, 3000);
                 }
             }
         </script>
