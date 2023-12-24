@@ -29,10 +29,16 @@
 
             var y = document.getElementById('hw2');
             var yt = String(getCookie('hw2')).replace(/_/g, "\n");
+            if(yt == getCookie('undefined')){
+                yt = '暂无';
+            }
             y.innerText = yt;
 
             var z = document.getElementById('hw3');
             var zt = String(getCookie('hw3')).replace(/_/g, "\n");
+            if(zt == getCookie('undefined')){
+                zt = '暂无';
+            }
             z.innerText = zt;
 
             var iframe = document.getElementById("myFrame");
@@ -50,7 +56,7 @@
 
             var backg = document.getElementById('img1');
             var backgt = String(getCookie_CW("backgroundimgurl"));
-            if (backgt == 'undefined') {
+            if (backgt == getCookie('undefined')) {
                 backgt = "https://cdn.pixabay.com/photo/2018/11/24/01/35/christmas-motif-3834860_1280.jpg"
             }
             backg.src = backgt;
